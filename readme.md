@@ -1,4 +1,4 @@
-JavaScript Beginner 01
+JavaScript Beginner 02
 ======================
 
 1. Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
