@@ -1,13 +1,27 @@
-<html>
-  <head>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <h1>JavaScript Beginner 02</h1>
+<html ng-app="maxNumberApp">
+<head>
+    <script src="angular.js"></script>
+    <script src="controllers.js"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <title>Max Number App</title>
+</head>
+<body>
+    <!--<h1>JavaScript Beginner 02</h1>
     <span>Instructions:</span>
     <ol>
-      <li>Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them. </li>
-      <li>Log the result in the console.</li>
-    </ol>
-  </body>
+        <li>Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them. </li>
+        <li>Log the result in the console.</li>
+    </ol>-->
+    <div ng-controller="NumberList">
+        <h2>Solution</h2>
+        <ul>
+            <li ng-repeat="number in numbers track by $index">
+                <input type="text" value="{{number.value}}" ng-model="number.value" />
+            </li>
+        </ul>
+        <button type="button" ng-click="addValue()">Add another</button>
+        <button type="button" ng-click="calculateHighestValue()">Calculate</button>
+        <p id="result-message"></p>
+    </div>
+</body>
 </html>
