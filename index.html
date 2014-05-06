@@ -12,22 +12,23 @@
         <li>Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them. </li>
         <li>Log the result in the console.</li>
     </ol>
-    <form name="myform" novalidate ng-submit="">
-        <div ng-controller="NumberList" class="solution-container">
+    <div class="solution-container" ng-controller="NumberList">
+        <!--<form name="myform" novalidate>-->
+        <form name="myform">
             <h2>Solution</h2>
             <ul class="solution-list">
                 <li ng-repeat="number in numbers track by $index">
-                    <input type="text" required value="{{number.value}}" ng-model="number.value" />
-                    <!--<div class="custom-error" ng-show="myform.number.value.$dirty && myform.number.value.$invalid">
-                        Invalid: <span ng-show="myform.number.value.$error.required">Email is required. (+/-)Numbers & decimals only!</span>
-                    </div>-->
+                    <input type="text" value="{{number.value}}" ng-model="number.value" name="number_{{$index}}" />
+                    <!--<input type="text" required value="{{number.value}}" ng-model="number.value" ng-pattern="onlyNumbers" name="number_{{$index}}" />
+                    <span ng-show="myform.number_{{$index}}.$valid">valid</span>{{myform.number_0.$valid}}
+                    validation: <span ng-show="myform.number_0.valid">Email is required. (+/-)Numbers & decimals only!</span>-->
                 </li>
             </ul>
             <button type="button" ng-click="addValue()">Add another</button>
             <button type="submit" ng-click="calculateHighestValue()">Calculate</button>
             <button type="reset" ng-click="resetValues()">Reset</button>
             <p id="result-message"></p>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 </html>

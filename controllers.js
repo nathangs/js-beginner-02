@@ -4,6 +4,7 @@ var maxNumberApp = angular.module('maxNumberApp', []);
 maxNumberApp.controller('NumberList', function ($scope) {
     $scope.numbers = [{ value: '' }, { value: '' }, { value: '' }];
     var resultMessageElement = document.getElementById("result-message");
+    $scope.onlyNumbers = '/^\d+$/';
 
     $scope.addValue = function () {
         $scope.numbers.push({ value: '' });
