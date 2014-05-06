@@ -2,15 +2,20 @@
 var maxNumberApp = angular.module('maxNumberApp', []);
 
 maxNumberApp.controller('NumberList', function ($scope) {
-    $scope.numbers = [];
+    $scope.numbers = [{ value: '' }, { value: '' }, { value: '' }];
+    var resultMessageElement = document.getElementById("result-message");
 
     $scope.addValue = function () {
         $scope.numbers.push({ value: '' });
     };
 
+    $scope.resetValues = function () {
+        $scope.numbers = [{ value: '' }, { value: '' }, { value: '' }];
+        resultMessageElement.innerText = "";
+    };
+
     $scope.calculateHighestValue = function () {
         var highestValue = "";
-        var resultMessage = document.getElementById("result-message");
         for (var i = 0; i < $scope.numbers.length; i++) {
             var currentValue = parseFloat($scope.numbers[i].value);
             if (highestValue == "") {
@@ -20,7 +25,11 @@ maxNumberApp.controller('NumberList', function ($scope) {
                 highestValue = currentValue;
             }
         }
-        resultMessage.innerText = "Highest value is: " + highestValue;
+        resultMessageElement.innerText = "Highest value is: " + highestValue;
     };
+
+    //$scope.onSubmit = function () {
+    //    $scope.calculateHighestValue();
+    //}
 
 });

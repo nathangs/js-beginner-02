@@ -6,22 +6,28 @@
     <title>Max Number App</title>
 </head>
 <body>
-    <!--<h1>JavaScript Beginner 02</h1>
+    <h1>JavaScript Beginner 02</h1>
     <span>Instructions:</span>
     <ol>
         <li>Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them. </li>
         <li>Log the result in the console.</li>
-    </ol>-->
-    <div ng-controller="NumberList">
-        <h2>Solution</h2>
-        <ul>
-            <li ng-repeat="number in numbers track by $index">
-                <input type="text" value="{{number.value}}" ng-model="number.value" />
-            </li>
-        </ul>
-        <button type="button" ng-click="addValue()">Add another</button>
-        <button type="button" ng-click="calculateHighestValue()">Calculate</button>
-        <p id="result-message"></p>
-    </div>
+    </ol>
+    <form name="myform" novalidate ng-submit="">
+        <div ng-controller="NumberList" class="solution-container">
+            <h2>Solution</h2>
+            <ul class="solution-list">
+                <li ng-repeat="number in numbers track by $index">
+                    <input type="text" required value="{{number.value}}" ng-model="number.value" />
+                    <!--<div class="custom-error" ng-show="myform.number.value.$dirty && myform.number.value.$invalid">
+                        Invalid: <span ng-show="myform.number.value.$error.required">Email is required. (+/-)Numbers & decimals only!</span>
+                    </div>-->
+                </li>
+            </ul>
+            <button type="button" ng-click="addValue()">Add another</button>
+            <button type="submit" ng-click="calculateHighestValue()">Calculate</button>
+            <button type="reset" ng-click="resetValues()">Reset</button>
+            <p id="result-message"></p>
+        </div>
+    </form>
 </body>
 </html>
